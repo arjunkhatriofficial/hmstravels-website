@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Car — HMS Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.booking-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
+.booking-form-box{background:var(--dark2);border:1px solid rgba(232,162,0,.1);border-radius:var(--radius);padding:2.5rem;}
+.booking-form-box h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px;margin-bottom:2rem;color:#1a1a1a;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.booking-summary{background:var(--dark3);border:1px solid rgba(232,162,0,.2);border-radius:var(--radius);padding:2rem;position:sticky;top:7rem;}
+.booking-summary h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:var(--gold);margin-bottom:1.5rem;}
+.summary-row{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid rgba(232,162,0,.1);font-size:.95rem;color:var(--text2);}
+.summary-row:last-child{border:none;}
+.summary-row strong{color:#1a1a1a;}
+.summary-total{display:flex;justify-content:space-between;padding:1.2rem 0;margin-top:.5rem;border-top:2px solid var(--gold);font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;}
+.summary-total .price{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:.8rem;width:100%;background:#25D366;color:#fff;padding:1.1rem;border-radius:10px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1px;text-decoration:none;margin-top:1.5rem;transition:all .3s;border:none;cursor:pointer;}
+.wa-btn:hover{background:#1ebe5d;transform:translateY(-2px);}
+.info-strip{background:rgba(232,162,0,.06);border:1px solid rgba(232,162,0,.15);border-radius:10px;padding:1.2rem;margin-top:1.2rem;font-size:.88rem;color:var(--text2);line-height:1.7;}
+@media(max-width:900px){.booking-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+/* Booking form: match site input styles (rounded, gold accent) */
+.booking-form-box .form-group input,
+.booking-form-box .form-group textarea,
+.booking-form-box .form-group select {
+  font-family: 'Inter', sans-serif !important;
+  color: var(--text2) !important;
+  width:100%;
+  background:#FFFFFF;
+  border:1.5px solid rgba(232,162,0,.18);
+  padding:.9rem 1.2rem;
+  border-radius:12px;
+  font-size:1rem;
+  outline:none;
+  transition:border .2s ease, box-shadow .2s ease;
+  box-shadow:inset 0 2px 8px rgba(232,162,0,.03);
+}
+.booking-form-box .form-group textarea{min-height:120px;resize:vertical;}
+.booking-form-box .form-group input:focus,
+.booking-form-box .form-group select:focus,
+.booking-form-box .form-group textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 10px 30px rgba(232,162,0,.08);
+}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<nav id="nav" class="pill-nav page-nav">
+  <a href="../index.html" class="logo-wrap">
+    <img src="../assets/logo.png" alt="HMS Travels Logo" class="logo-img">
+  </a>
+  <div class="pill-nav-inner">
+    <ul class="pill-items">
+      <li><a href="../index.html" class="pill-link">Home</a></li>
+      <li><a href="fleet.html" class="pill-link">Fleet</a></li>
+      <li><a href="booking.html" class="pill-link active">Book</a></li>
+      <li><a href="about.html" class="pill-link">About</a></li>
+      <li><a href="contact.html" class="pill-link">Contact</a></li>
+    </ul>
+  </div>
+  <a class="nav-book" href="https://wa.me/+917003876988">💬 WhatsApp</a>
+</nav>
+
+<div class="page-hero">
+  <p class="s-label reveal">2-Minute Booking</p>
+  <h1 class="s-title reveal">Book Your <span style="color:var(--gold)">Car</span></h1>
+  <p class="s-sub reveal" style="margin:1rem auto;text-align:center;">Fill in your details and we'll send the booking directly to our team via WhatsApp for instant confirmation.</p>
+</div>
+
+<section class="section" style="padding-top:3rem;">
+  <div class="section-inner">
+    <div class="booking-grid">
+
+      <!-- FORM -->
+      <div class="booking-form-box">
+        <h3>Your Booking Details</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="e.g. Arun Kumar" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Pick-up City</label>
+            <select name="city" onchange="updateSummary()">
+              <option>Chennai</option><option>Bangalore</option><option>Hyderabad</option>
+              <option>Coimbatore</option><option>Kochi</option><option>Madurai</option><option>Pondicherry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pick-up Location / Address</label>
+            <input type="text" name="pickup" placeholder="e.g. Chennai Airport, T2" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Pick-up Date</label>
+              <input type="date" name="pickup_date" onchange="updateSummary()" required>
+            </div>
+            <div class="form-group">
+              <label>Return Date</label>
+              <input type="date" name="return_date" onchange="updateSummary()" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Choose Car</label>
+            <select name="car" onchange="updateSummary()">
+              <option value="Exter 2025 (₹899/day)" data-price="899">Exter 2025 — ₹899/day</option>
+              <option value="Mahindra XUV300 (₹1299/day)" data-price="1299">Mahindra XUV300 — ₹1,299/day</option>
+              <option value="Kia Carens 2026 (₹1699/day)" data-price="1699">Kia Carens 2026 — ₹1,699/day</option>
+              <option value="Bolero Neo 2025 (₹1299/day)" data-price="1299">Bolero Neo 2025 — ₹1,299/day</option>
+              <option value="Tata Tiago EV 2024 (₹1499/day)" data-price="1499">Tata Tiago EV — ₹1,499/day</option>
+              <option value="Venue 2025 (₹1299/day)" data-price="1299">Venue 2025 — ₹1,299/day</option>
+              <option value="Thar ROXX 2025 (₹1999/day)" data-price="1999">Thar ROXX 2025 — ₹1,999/day</option>
+              <option value="Punch 2025 (₹1199/day)" data-price="1199">Punch 2025 — ₹1,199/day</option>
+              <option value="Ertiga 2025 (₹1699/day)" data-price="1699">Ertiga 2025 — ₹1,699/day</option>
+            </select>
+          </div>
+          <div class="book-field full">
+          <label>Purpose of Rent</label>
+          <select name="purpose" id="purpose-select">
+            <option value="" disabled selected>Select purpose</option>
+            <option>Local Use</option>
+            <option>Outstation Trip</option>
+            <option>Airport Transfer</option>
+            <option>Family Trip</option>
+            <option>Business Travel</option>
+            <option>Weekend Getaway</option>
+            <option>Wedding / Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+          <div class="form-group">
+            <label>Any Special Requests?</label>
+            <textarea name="notes" rows="3" placeholder="e.g. Need child seat, planning outstation trip to Ooty..."></textarea>
+          </div>
+          <button type="submit" class="wa-btn">💬 Send Booking via WhatsApp</button>
+          <div class="info-strip">📋 <strong>What happens next:</strong> Our team receives your booking on WhatsApp and confirms within minutes. You'll need to show your driving licence + Aadhaar/Passport at pickup.</div>
+        </form>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="booking-summary">
+        <h3>Booking Summary</h3>
+        <div class="summary-row"><span>Car</span><strong id="s-car">Maruti Swift</strong></div>
+        <div class="summary-row"><span>Pick-up City</span><strong id="s-city">Chennai</strong></div>
+        <div class="summary-row"><span>Pick-up Date</span><strong id="s-pdate">—</strong></div>
+        <div class="summary-row"><span>Return Date</span><strong id="s-rdate">—</strong></div>
+        <div class="summary-row"><span>Duration</span><strong id="s-days">—</strong></div>
+        <div class="summary-row"><span>Rate</span><strong id="s-rate">₹899/day</strong></div>
+        <div class="summary-total"><span>Estimated Total</span><span class="price" id="s-total">—</span></div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:.8rem;">* Final price confirmed by our team. GST & extras may apply.</p>
+        <a href="https://wa.me/+917003876988" target="_blank" class="wa-btn">💬 Quick WhatsApp Book</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer"></footer>
+<script src="../js/pillnav.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/footer.js"></script>
+<script>
+function updateSummary() {
+  const carSel = document.querySelector('[name="car"]');
+  const carOpt = carSel.options[carSel.selectedIndex];
+  const price  = parseInt(carOpt.dataset.price);
+  const pd = document.querySelector('[name="pickup_date"]').value;
+  const rd = document.querySelector('[name="return_date"]').value;
+  const city = document.querySelector('[name="city"]').value;
+
+  document.getElementById('s-car').textContent  = carSel.value.split(' (')[0];
+  document.getElementById('s-city').textContent = city;
+  document.getElementById('s-rate').textContent = '₹' + price.toLocaleString('en-IN') + '/day';
+
+  if (pd) document.getElementById('s-pdate').textContent = new Date(pd).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'});
+  if (rd) document.getElementById('s-rdate').textContent = new Date(rd).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'});
+
+  if (pd && rd) {
+    const days = Math.max(1, Math.round((new Date(rd) - new Date(pd)) / 86400000));
+    document.getElementById('s-days').textContent = days + ' day' + (days > 1 ? 's' : '');
+    document.getElementById('s-total').textContent = '₹' + (price * days).toLocaleString('en-IN');
+  }
+}
+updateSummary();
+</script>
+</body>
+</html>
