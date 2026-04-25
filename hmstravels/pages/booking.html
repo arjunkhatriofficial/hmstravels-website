@@ -150,18 +150,48 @@
       </div>
 
       <!-- SUMMARY -->
-      <div class="booking-summary">
-        <h3>Booking Summary</h3>
-        <div class="summary-row"><span>Car</span><strong id="s-car">Maruti Swift</strong></div>
-        <div class="summary-row"><span>Pick-up City</span><strong id="s-city">Chennai</strong></div>
-        <div class="summary-row"><span>Pick-up Date</span><strong id="s-pdate">—</strong></div>
-        <div class="summary-row"><span>Return Date</span><strong id="s-rdate">—</strong></div>
-        <div class="summary-row"><span>Duration</span><strong id="s-days">—</strong></div>
-        <div class="summary-row"><span>Rate</span><strong id="s-rate">₹899/day</strong></div>
-        <div class="summary-total"><span>Estimated Total</span><span class="price" id="s-total">—</span></div>
-        <p style="font-size:.78rem;color:var(--muted);margin-top:.8rem;">* Final price confirmed by our team. GST & extras may apply.</p>
-        <a href="https://wa.me/+917003876988" target="_blank" class="wa-btn">💬 Quick WhatsApp Book</a>
-      </div>
+<div class="booking-summary">
+  <h3>Booking Summary</h3>
+
+  <div class="summary-row">
+    <span>Car</span>
+    <strong id="s-car">Maruti Swift</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Pick-up City</span>
+    <strong id="s-city">Chennai</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Pick-up Date</span>
+    <strong id="s-pdate">—</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Return Date</span>
+    <strong id="s-rdate">—</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Duration</span>
+    <strong id="s-days">—</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Rate</span>
+    <strong id="s-rate">₹899/day</strong>
+  </div>
+
+  <div class="summary-total">
+    <span>Estimated Total</span>
+    <span class="price" id="s-total">—</span>
+  </div>
+
+  <p style="font-size:.78rem;color:var(--muted);margin-top:.8rem;">
+    * Final price confirmed by our team. GST & extras may apply.
+  </p>
+</div>
 
     </div>
   </div>
@@ -175,17 +205,24 @@
 function updateSummary() {
   const carSel = document.querySelector('[name="car"]');
   const carOpt = carSel.options[carSel.selectedIndex];
-  const price  = parseInt(carOpt.dataset.price);
+  const price = parseInt(carOpt.dataset.price);
   const pd = document.querySelector('[name="pickup_date"]').value;
   const rd = document.querySelector('[name="return_date"]').value;
   const city = document.querySelector('[name="city"]').value;
 
-  document.getElementById('s-car').textContent  = carSel.value.split(' (')[0];
+  document.getElementById('s-car').textContent = carSel.value.split(' (')[0];
   document.getElementById('s-city').textContent = city;
   document.getElementById('s-rate').textContent = '₹' + price.toLocaleString('en-IN') + '/day';
 
-  if (pd) document.getElementById('s-pdate').textContent = new Date(pd).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'});
-  if (rd) document.getElementById('s-rdate').textContent = new Date(rd).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'});
+  if (pd) {
+    document.getElementById('s-pdate').textContent =
+      new Date(pd).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  if (rd) {
+    document.getElementById('s-rdate').textContent =
+      new Date(rd).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
 
   if (pd && rd) {
     const days = Math.max(1, Math.round((new Date(rd) - new Date(pd)) / 86400000));
@@ -193,7 +230,29 @@ function updateSummary() {
     document.getElementById('s-total').textContent = '₹' + (price * days).toLocaleString('en-IN');
   }
 }
+
 updateSummary();
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const form = this;
+
+  const message =
+    'Hi HMS Travels, I want to book a car:%0A%0A' +
+    'Name: ' + form.name.value + '%0A' +
+    'Phone: ' + form.phone.value + '%0A' +
+    'Car: ' + form.car.value + '%0A' +
+    'City: ' + form.city.value + '%0A' +
+    'Pickup Location: ' + form.pickup.value + '%0A' +
+    'Pickup Date: ' + form.pickup_date.value + '%0A' +
+    'Return Date: ' + form.return_date.value + '%0A' +
+    'Purpose: ' + form.purpose.value + '%0A' +
+    'Notes: ' + form.notes.value + '%0A' +
+    'Estimated Total: ' + document.getElementById('s-total').innerText;
+
+  window.open('https://wa.me/918369778863?text=' + message, '_blank');
+});
 </script>
 </body>
 </html>
