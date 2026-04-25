@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const isInPages = path.includes('/pages/');
   const pagesPrefix = isInPages ? '' : 'pages/';
   const homeHref = isInPages ? '../index.html' : 'index.html';
-  const logoSrc = isInPages ? '../assets/logo.png' : 'assets/logo.png';
+  const logoSrc = isInPages ? '../assets/logo-footer.png' : 'assets/logo-footer.png';
 
   const footerHTML = `
   <div class="footer-grid">
