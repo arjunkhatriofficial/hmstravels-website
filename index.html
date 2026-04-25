@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMS Travels — Premium Self-Drive Car Rental West Bengal</title>
+<meta name="description" content="HMS Travels — West Bengal's premium self-drive car rental. Book in 2 minutes on WhatsApp. No driver needed.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── HOME-ONLY STYLES ── */
+#hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:9rem 2rem 6rem;
+  background:radial-gradient(ellipse 120% 80% at 50% 0%,#FFFFFF 0%,#F9F9F9 70%);
+}
+.stars-canvas{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;}
+.scene-3d{position:absolute;bottom:0;left:0;right:0;height:62%;perspective:900px;pointer-events:none;overflow:hidden;}
+.road-plane{position:absolute;bottom:-5%;left:50%;width:520px;height:320%;background:linear-gradient(180deg,#E8E8E8 0%,#D0D0D0 100%);transform-origin:bottom center;transform:translateX(-50%) rotateX(56deg);border-left:4px solid rgba(232,162,0,.2);border-right:4px solid rgba(232,162,0,.2);}
+.road-line{position:absolute;left:50%;transform:translateX(-50%);width:14px;background:var(--gold);border-radius:3px;opacity:.7;animation:dashMove .7s linear infinite;}
+@keyframes dashMove{from{transform:translateX(-50%) translateY(0);}to{transform:translateX(-50%) translateY(90px);}}
+.road-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:200px;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(232,162,0,.15),transparent 70%);}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(232,162,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,162,0,.03) 1px,transparent 1px);background-size:60px 60px;animation:gridPush 20s linear infinite;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 100%);}
+@keyframes gridPush{from{transform:perspective(800px) rotateX(42deg) translateY(0);}to{transform:perspective(800px) rotateX(42deg) translateY(60px);}}
+.blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;animation:blobFloat 8s ease-in-out infinite;}
+@keyframes blobFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-30px) scale(1.1);}}
+.blob-1{width:700px;height:700px;background:linear-gradient(135deg,rgba(232,162,0,.08),rgba(232,162,0,.02));top:-200px;right:-200px;animation-delay:0s;}
+.blob-2{width:500px;height:500px;background:linear-gradient(135deg,rgba(37,99,235,.05),rgba(37,99,235,.01));bottom:-100px;left:-100px;animation-delay:1s;}
+.hero-car-wrap{position:absolute;bottom:14%;left:50%;transform:translateX(-50%);filter:drop-shadow(0 30px 80px rgba(232,162,0,.35));animation:carFloat3D 5s ease-in-out infinite;pointer-events:none;}
+@keyframes carFloat3D{0%,100%{transform:translateX(-50%) translateY(0) perspective(1000px) rotateX(0deg) rotateY(-5deg);}50%{transform:translateX(-50%) translateY(-30px) perspective(1000px) rotateX(5deg) rotateY(5deg);}}
+.hero-eyebrow{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:6px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;justify-content:center;gap:.8rem;margin:0 auto 1.8rem;animation:fadeUp 1.1s ease .2s both;text-shadow:0 2px 8px rgba(232,162,0,.4),0 0 15px rgba(232,162,0,.25);max-width:1200px;padding:0 4rem;} 
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:1;max-width:60px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:1;box-shadow:0 0 15px rgba(232,162,0,.4);}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,6rem);line-height:.85;letter-spacing:6px;text-align:center;background:linear-gradient(160deg,#0a0a0a 0%,#1a1a1a 25%,var(--gold) 70%,var(--gold2) 100%);background-clip: text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:fadeUp 1.2s cubic-bezier(.23,1,.32,1) .5s both;filter:drop-shadow(0 6px 25px rgba(232,162,0,.35));text-shadow:0 0 50px rgba(232,162,0,.25);font-weight:900;}
+.hero-sub{font-size:1.1rem;color:#333333;line-height:1.8;text-align:center;max-width:560px;margin:2rem auto 0;animation:fadeUp 1.1s ease .8s both;transition:all .3s;font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.1);}
+.trust-bar{display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:3rem;animation:fadeUp 1s ease 1.1s both;}
+.trust-item{display:flex;align-items:center;gap:.7rem;font-size:.9rem;color:#333333;font-weight:600;transition:all .4s cubic-bezier(.23,1,.32,1);padding:.5rem 1rem;border-radius:8px;background:rgba(232,162,0,.05);}
+.trust-item:hover{color:var(--gold);transform:perspective(1000px) translateY(-4px) scale(1.05);background:rgba(232,162,0,.12);box-shadow:0 8px 20px rgba(232,162,0,.15);}
+.trust-item .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));box-shadow:0 0 15px rgba(232,162,0,.5);animation:glowPulse 2s ease-in-out infinite;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <!-- Rotating background elements -->
+  <div class="loader-bg-spin loader-spin-1"></div>
+  <div class="loader-bg-spin loader-spin-2"></div>
+  <div class="loader-bg-spin loader-spin-3"></div>
+  
+  <!-- Main content -->
+  <div class="loader-content">
+    <div class="loader-logo" style="font-size:2.6rem;letter-spacing:3px;">HMS Travels</div>
+    <div class="loader-sub">Premium Self-Drive Car Rental</div>
+    <div class="loader-bar-wrap" style="margin-top:1.6rem;"><div class="loader-bar"></div></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-top:1.2rem;flex-direction:column;">
+      <div class="loader-pct" id="loaderPct">0%</div>
+      <div class="loader-dots" style="display:flex;gap:.6rem;">
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+        <div class="loader-dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav" class="pill-nav">
+  <a href="index.html" class="logo-wrap">
+    <img src="assets/logo.png" alt="HMS Travels Logo" class="logo-img">
+  </a>
+  <div class="pill-nav-inner">
+    <ul class="pill-items">
+      <li><a href="index.html" class="pill-link active">Home</a></li>
+      <li><a href="pages/fleet.html" class="pill-link">Fleet</a></li>
+      <li><a href="pages/booking.html" class="pill-link">Book</a></li>
+      <li><a href="pages/about.html" class="pill-link">About</a></li>
+      <li><a href="pages/contact.html" class="pill-link">Contact</a></li>
+    </ul>
+  </div>
+  <a class="nav-book" href="pages/booking.html">💬 Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="parts"></div>
+  <div class="hero-grid"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <canvas class="stars-canvas" id="stars"></canvas>
+
+  <div class="scene-3d">
+    <div class="road-plane">
+      <div class="road-line" style="height:60px;top:5%"></div>
+      <div class="road-line" style="height:60px;top:22%"></div>
+      <div class="road-line" style="height:60px;top:39%"></div>
+      <div class="road-line" style="height:60px;top:56%"></div>
+      <div class="road-line" style="height:60px;top:73%"></div>
+    </div>
+    <div class="road-glow"></div>
+  </div>
+
+  <div class="hero-car-wrap">
+    <svg width="420" height="160" viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="210" cy="148" rx="160" ry="10" fill="rgba(0,0,0,0.5)"/>
+      <rect x="60" y="85" width="300" height="52" rx="12" fill="#1a1c2a"/>
+      <path d="M140 85 Q160 45 190 40 L250 40 Q280 45 300 85Z" fill="#1e2035"/>
+      <path d="M148 83 Q165 52 192 47 L208 47 L208 83Z" fill="#3a4a8a" opacity=".7"/>
+      <path d="M212 83 L212 47 L248 47 Q270 52 285 83Z" fill="#3a4a8a" opacity=".7"/>
+      <line x1="210" y1="47" x2="210" y2="83" stroke="#111" stroke-width="3"/>
+      <rect x="60" y="118" width="300" height="4" rx="2" fill="#E8A200" opacity=".6"/>
+      <rect x="62" y="95" width="28" height="14" rx="5" fill="#FFE47A" opacity=".9"/>
+      <rect x="330" y="95" width="26" height="14" rx="5" fill="#FF3030" opacity=".8"/>
+      <circle cx="130" cy="135" r="24" fill="#111"/>
+      <circle cx="130" cy="135" r="16" fill="#222" stroke="#E8A200" stroke-width="2"/>
+      <circle cx="130" cy="135" r="6" fill="#E8A200"/>
+      <circle cx="290" cy="135" r="24" fill="#111"/>
+      <circle cx="290" cy="135" r="16" fill="#222" stroke="#E8A200" stroke-width="2"/>
+      <circle cx="290" cy="135" r="6" fill="#E8A200"/>
+      <rect x="195" y="100" width="30" height="14" rx="3" fill="#E8A200"/>
+      <text x="210" y="111" text-anchor="middle" font-size="7" font-weight="bold" fill="#0A0B0F" font-family="sans-serif">HMS</text>
+    </svg>
+  </div>
+
+  <div class="section-inner" style="position:relative;z-index:10;text-align:center;">
+    <div class="hero-eyebrow">West Bengal Best Self-Drive Rental</div>
+    <h1 class="hero-h1">Drive<br>Your<br>Adventure</h1>
+    <p class="hero-sub">Premium, insured self-drive cars across West Bengal. No driver, no hassle — just you and the open road. Book in 2 minutes.</p>
+    <div class="hero-btns" style="animation:fadeUp 1s ease .9s both;">
+      <a class="btn-gold" href="pages/booking.html">🚗 Book a Car</a>
+      <a class="btn-ghost" href="pages/fleet.html">View Fleet →</a>
+    </div>
+    <div class="trust-bar">
+      <div class="trust-item"><span class="dot"></span>Fully Insured</div>
+      <div class="trust-item"><span class="dot"></span>No Driver Needed</div>
+      <div class="trust-item"><span class="dot"></span>5000+ Customers</div>
+      <div class="trust-item"><span class="dot"></span>Instant Confirmation</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING STRIP -->
+<div class="book-strip">
+  <div class="book-strip-inner">
+    <div class="book-field">
+      <label>📍 Pick-up City</label>
+      <select>
+        <option>Chennai</option><option>Bangalore</option><option>Hyderabad</option>
+        <option>Coimbatore</option><option>Kochi</option><option>Madurai</option><option>Pondicherry</option>
+      </select>
+    </div>
+    <div class="book-field"><label>📅 Pick-up Date</label><input type="date"></div>
+    <div class="book-field"><label>📅 Return Date</label><input type="date"></div>
+    <div><a class="btn-gold" href="pages/fleet.html">Search Cars →</a></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-box"><span class="stat-n" data-t="5000">0</span><div class="stat-l">Happy Customers</div></div>
+    <div class="stat-box"><span class="stat-n" data-t="5">0</span><div class="stat-l">Cars in Fleet</div></div>
+    <div class="stat-box"><span class="stat-n" data-t="7">0</span><div class="stat-l">Cities Served</div></div>
+    <div class="stat-box"><span class="stat-n" data-t="4.9">0</span><div class="stat-l">Average Rating ⭐</div></div>
+  </div>
+</div>
+
+<!-- FLEET PREVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <p class="s-label reveal">Our Fleet</p>
+    <h2 class="s-title reveal">Pick Your <span style="color:var(--gold)">Perfect Ride</span></h2>
+    <p class="s-sub reveal">From city hatchbacks to premium SUVs — clean, serviced, and ready.</p>
+    <div class="fleet-grid">
+      <div class="car-card reveal">
+        <div class="car-card-img"><img src="assets/images/fleet/Exter-2025.jpg" alt="Exter 2025"><span class="car-badge available">Available</span></div>
+        <div class="car-card-body">
+          <div class="car-name">Exter 2025</div><div class="car-cat">City Hatchback</div>
+          <div class="car-specs"><div class="spec">⛽ Petrol/CNG</div><div class="spec">👥 5 Seats</div><div class="spec">❄️ AC</div><div class="spec">🔒 Insured</div></div>
+          <div class="car-price-row"><div class="car-price">₹999 <span>/ day</span></div><a class="car-book-btn" href="pages/booking.html">Book Now</a></div>
+        </div>
+      </div>
+      <div class="car-card reveal">
+        <div class="car-card-img"><img src="assets/images/fleet/Mahindra-XUV300.jpg" alt="Mahindra XUV300"><span class="car-badge available">Available</span></div>
+        <div class="car-card-body">
+          <div class="car-name">Mahindra XUV300</div><div class="car-cat">Compact SUV</div>
+          <div class="car-specs"><div class="spec">⛽ Petrol/Diesel</div><div class="spec">👥 5 Seats</div><div class="spec">❄️ AC</div><div class="spec">🔒 Insured</div></div>
+          <div class="car-price-row"><div class="car-price">₹1,499 <span>/ day</span></div><a class="car-book-btn" href="pages/booking.html">Book Now</a></div>
+        </div>
+      </div>
+      <div class="car-card reveal">
+        <div class="car-card-img" style="background:linear-gradient(135deg,#E8D5B7,#D4B896);"><img src="assets/images/fleet/Kia-Carens-2026.jpg" alt="Kia Carens 2026"><span class="car-badge">Premium</span></div>
+        <div class="car-card-body">
+          <div class="car-name">Kia Carens 2026</div><div class="car-cat">Family MPV</div>
+          <div class="car-specs"><div class="spec">⛽ Petrol/Diesel</div><div class="spec">👥 5 Seats</div><div class="spec">🎵 Sunroof</div><div class="spec">🔒 Insured</div></div>
+          <div class="car-price-row"><div class="car-price">₹1,999 <span>/ day</span></div><a class="car-book-btn" href="pages/booking.html">Book Now</a></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a class="btn-ghost" href="pages/fleet.html">View Full Fleet →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-inner">
+    <p class="s-label reveal">Process</p>
+    <h2 class="s-title reveal">4 Steps to <span style="color:var(--gold)">Drive Away</span></h2>
+    <div class="how-steps">
+      <div class="how-step"><div class="step-num">01</div><div class="step-title">Choose Your Car</div><div class="step-desc">Browse our fleet and pick the perfect car for your trip.</div></div>
+      <div class="how-step"><div class="step-num">02</div><div class="step-title">Book Instantly</div><div class="step-desc">Fill the booking form or WhatsApp us. Confirmation in minutes.</div></div>
+      <div class="how-step"><div class="step-num">03</div><div class="step-title">Show ID & Drive</div><div class="step-desc">Bring licence + Aadhaar. Pick up and hit the road.</div></div>
+      <div class="how-step"><div class="step-num">04</div><div class="step-title">Return & Done</div><div class="step-desc">Drop the car back. Same fuel level. No hidden charges.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-section">
+  <div class="section-inner">
+    <p class="s-label reveal">Testimonials</p>
+    <h2 class="s-title reveal">What Customers <span style="color:var(--gold)">Say</span></h2>
+    <div class="reviews-grid">
+      <div class="review-card reveal"><div class="review-stars">★★★★★</div><div class="review-text">"Best self-drive experience in West Bengal. The Creta was spotless and booking was done in under 5 minutes on WhatsApp!"</div><div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Arun Krishnamurthy</div><div class="review-city">Chennai · Coorg Trip</div></div></div></div>
+      <div class="review-card reveal"><div class="review-stars">★★★★★</div><div class="review-text">"Took the Nexon EV Bangalore to Mysore. Zero issues, perfectly charged. HMS Travels is my go-to now."</div><div class="review-author"><div class="review-avatar">P</div><div><div class="review-name">Priya Sharma</div><div class="review-city">Bangalore · Weekend Getaway</div></div></div></div>
+      <div class="review-card reveal"><div class="review-stars">★★★★★</div><div class="review-text">"Used the Innova for a family trip with 6 people. Comfortable, clean, completely transparent pricing."</div><div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Rajesh Menon</div><div class="review-city">Kochi · Family Road Trip</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <p class="s-label reveal" style="justify-content:center;">Ready to Roll?</p>
+  <h2 class="s-title reveal" style="text-align:center;font-size:clamp(3rem,7vw,5.5rem);">Book Your Car<br><span style="color:var(--gold)">Right Now</span></h2>
+  <p class="reveal" style="color:var(--text2);font-size:1.15rem;max-width:480px;margin:1.5rem auto;text-align:center;line-height:1.8;">2-minute booking. Instant confirmation. No driver. No drama.</p>
+  <div class="countdown-wrap reveal">
+    <div class="cd-box"><span class="cd-num" id="cd-h">23</span><div class="cd-lbl">Hours</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-box"><span class="cd-num" id="cd-m">59</span><div class="cd-lbl">Mins</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-box"><span class="cd-num" id="cd-s">59</span><div class="cd-lbl">Secs</div></div>
+  </div>
+  <div class="hero-btns reveal">
+    <a class="btn-gold" href="pages/booking.html" style="font-size:1.05rem;padding:1.2rem 3rem;">🚗 Book Now</a>
+    <a class="btn-ghost" href="tel:+917003876988" style="font-size:1.05rem;padding:1.2rem 3rem;">📞 Call Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="site-footer"></footer>
+
+<script src="js/pillnav.js"></script>
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+</body>
+</html>
