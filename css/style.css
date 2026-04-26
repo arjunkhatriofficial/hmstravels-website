@@ -1092,3 +1092,24 @@ section {
   }
 
 }
+
+@media (max-width: 768px) {
+  nav {
+    min-height: 58px !important;
+  }
+
+  .pill-link {
+    font-size: 11.5px !important;
+    padding: 6px 7px !important;
+  }
+
+  .hero,
+  .page-hero {
+    padding-top: 120px !important;
+  }
+
+  .s-label {
+    font-size: 11px !important;
+    letter-spacing: 6px !important;
+  }
+}
