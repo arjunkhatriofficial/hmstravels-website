@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <ul>
           <li><a href="#" class="legal-link" data-key="terms">Terms</a></li>
           <li><a href="#" class="legal-link" data-key="privacy">Privacy</a></li>
+          <li><a href="#" class="legal-link" data-key="policy">Policy</a></li> <!-- 👈 ADD -->
           <li><a href="#" class="legal-link" data-key="cancellation">Cancellation</a></li>
       </ul>
     </div>
@@ -110,6 +111,21 @@ document.addEventListener('DOMContentLoaded', function () {
           <h5>Contact</h5>
           <p>For privacy queries contact us at <a href="mailto:wap709@gmail.com">wap709@gmail.com</a>.</p>
         `,
+        policy: `
+  <h4>Rental Policy</h4>
+  <p>Please read our rental policy carefully before booking.</p>
+
+  <ul>
+    <li>The vehicle must be returned in the same condition as provided. Any damage will be chargeable.</li>
+    <li>Fuel Policy: The car is provided with a fixed fuel level. The same level must be maintained while returning.</li>
+    <li>If fuel level is lower, the difference will be charged.</li>
+    <li>The renter is fully responsible for the vehicle during the rental period.</li>
+    <li>Valid Driving License and ID proof are mandatory at pickup.</li>
+    <li>Rash driving, misuse, or illegal activities are strictly prohibited.</li>
+  </ul>
+
+  <p>For any questions, contact us on <a href="https://wa.me/+917003876988">WhatsApp</a>.</p>
+`,
         cancellation: `
           <h4>Cancellation Policy</h4>
           <p>Cancellations should be requested via WhatsApp. Refunds are processed according to the timing of the cancellation relative to pickup.</p>
