@@ -1074,3 +1074,21 @@ section {
     width: 90%;
   }
 }
+
+/* ===== FINAL NAV FIX ===== */
+@media (max-width: 768px) {
+
+  .pill-nav {
+    padding: 8px 6px !important;
+  }
+
+  .pill-items {
+    gap: 4px;
+  }
+
+  .pill-link {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+}
