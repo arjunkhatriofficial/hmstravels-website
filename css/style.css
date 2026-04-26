@@ -1008,3 +1008,69 @@ section {
     max-width: 100%;
   }
 }
+
+
+/* ===== MOBILE FIX ===== */
+
+@media (max-width: 768px) {
+
+  nav {
+    padding: 10px 12px !important;
+  }
+
+  .logo-wrap {
+    display: none;
+  }
+
+  .pill-nav-inner {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .pill-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-items {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    min-width: max-content;
+  }
+
+  .pill-link {
+    font-size: 13px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  .nav-book {
+    display: none;
+  }
+
+  .hero,
+  .page-hero {
+    padding-top: 140px;
+    text-align: center;
+  }
+
+  .hero-h1,
+  .s-title {
+    font-size: clamp(2.5rem, 12vw, 3.8rem);
+    line-height: 1;
+  }
+
+  .hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-btns a {
+    width: 90%;
+  }
+}
