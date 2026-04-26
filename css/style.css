@@ -908,3 +908,103 @@ footer {
   width: auto;
   object-fit: contain;
 }
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.navbar,
+.hero,
+.fleet-grid,
+.steps-grid,
+.testimonials-grid,
+.booking-box,
+.footer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.fleet-grid,
+.steps-grid,
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .fleet-grid,
+  .steps-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .navbar ul {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 42px !important;
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  .fleet-grid,
+  .steps-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-box,
+  form {
+    width: 100%;
+  }
+
+  input,
+  select,
+  button {
+    width: 100%;
+    max-width: 100%;
+  }
+}
