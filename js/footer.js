@@ -113,18 +113,25 @@ document.addEventListener('DOMContentLoaded', function () {
         `,
         policy: `
   <h4>Rental Policy</h4>
-  <p>Please read our rental policy carefully before booking.</p>
+  <p>Please read carefully before booking:</p>
 
   <ul>
-    <li>The vehicle must be returned in the same condition as provided. Any damage will be chargeable.</li>
-    <li>Fuel Policy: The car is provided with a fixed fuel level. The same level must be maintained while returning.</li>
-    <li>If fuel level is lower, the difference will be charged.</li>
-    <li>The renter is fully responsible for the vehicle during the rental period.</li>
-    <li>Valid Driving License and ID proof are mandatory at pickup.</li>
-    <li>Rash driving, misuse, or illegal activities are strictly prohibited.</li>
+    <li><strong>Vehicle Condition:</strong> The car must be returned in the same condition as provided. Any damage (scratch, dent, accident) will be chargeable to the renter.</li>
+
+    <li><strong>Damage Charges:</strong> In case of any damage, the full repair cost will be borne by the customer. HMS Travels reserves the right to assess and charge accordingly.</li>
+
+    <li><strong>Fuel Policy:</strong> The vehicle is provided with a fixed fuel level. The same level must be maintained while returning. Any shortage will be charged.</li>
+
+    <li><strong>Responsibility:</strong> The renter is fully responsible for the vehicle during the rental period.</li>
+
+    <li><strong>Documents Required:</strong> Valid Driving License and ID proof are mandatory at pickup.</li>
+
+    <li><strong>Usage Rules:</strong> Rash driving, off-roading, illegal activities, or misuse of the vehicle is strictly prohibited.</li>
+
+    <li><strong>Penalty:</strong> Any violation of terms may result in additional charges or termination of booking.</li>
   </ul>
 
-  <p>For any questions, contact us on <a href="https://wa.me/+917003876988">WhatsApp</a>.</p>
+  <p>By booking with HMS Travels, you agree to the above terms.</p>
 `,
         cancellation: `
           <h4>Cancellation Policy</h4>
