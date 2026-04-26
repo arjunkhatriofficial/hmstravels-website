@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <path d="M4.98 3.5C4.98 4.602 4.07 5.5 2.99 5.5C1.91 5.5 1 4.602 1 3.5C1 2.398 1.91 1.5 2.99 1.5C4.07 1.5 4.98 2.398 4.98 3.5ZM.5 8.98H5.5V23H.5V8.98ZM8.98 8.98H13.28V10.66H13.36C13.98 9.58 15.68 8.44 17.9 8.44C22.02 8.44 23 10.98 23 15.06V23H17.96V15.98C17.96 13.86 17.92 11.18 15.04 11.18C12.12 11.18 11.6 13.44 11.6 15.78V23H6.56V8.98H8.98Z" fill="currentColor" />
           </svg>
         </a>
-        <a class="soc-btn" href="https://www.instagram.com/hmskt_s/" target="_blank" rel="noopener" aria-label="Instagram">
+        <a class="soc-btn" href="https://www.instagram.com/hmstravels.kolkata/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.4" fill="none" />
             <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.4" fill="none" />
