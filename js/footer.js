@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <a href="${homeHref}" class="logo-wrap">
         <img src="${logoSrc}" alt="HMS Travels Logo" class="logo-img">
       </a>
-      <p>West Bengal Best Self-Drive Rental</p>
+      <p>Kolkata Best Self-Drive Rental</p>
       <div class="footer-socials">
         <a class="soc-btn" href="https://www.linkedin.com/company/hmstravels" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
