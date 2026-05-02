@@ -181,7 +181,7 @@ function initContactForm() {
     const dropoff = form.querySelector('[name="dropoff"]').value;
     const car     = form.querySelector('[name="car"]').value;
     const msg     = `Hi HMS Travels! I'm ${name} from ${city}. I'd like to book the ${car} from ${pickup} to ${dropoff}.`;
-    window.open(`https://wa.me/+917003876988?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/+918777819525?text=${encodeURIComponent(msg)}`, '_blank');
   });
 }
 

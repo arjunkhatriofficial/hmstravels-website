@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="https://wa.me/+917003876988">WhatsApp</a></li>
-        <li><a href="tel:+918369778863">Call Us</a></li>
+        <li><a href="https://wa.me/+918777819525">WhatsApp</a></li>
+        <li><a href="tel:+918777819525">Call Us</a></li>
         <li><a href="mailto:admin@hmsgrps.com">Email</a></li>
       </ul>
     </div>
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <li>50% refund for cancellations made between 24–48 hours before pickup.</li>
             <li>No refund for cancellations made within 24 hours of pickup.</li>
           </ul>
-          <p>Exceptions may apply during promotions or peak periods. Contact <a href="https://wa.me/+917003876988">WhatsApp</a> for assistance.</p>
+          <p>Exceptions may apply during promotions or peak periods. Contact <a href="https://wa.me/+918777819525">WhatsApp</a> for assistance.</p>
         `
       };
 
