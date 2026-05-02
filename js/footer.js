@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <ul>
         <li><a href="https://wa.me/+917003876988">WhatsApp</a></li>
         <li><a href="tel:+918369778863">Call Us</a></li>
-        <li><a href="mailto:support@hmstravels.com">Email</a></li>
+        <li><a href="mailto:admin@hmsgrps.com">Email</a></li>
       </ul>
     </div>
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <h5>How We Use Data</h5>
           <p>Data is used for booking confirmations, customer support and legal compliance. You can request data removal via email.</p>
           <h5>Contact</h5>
-          <p>For privacy queries contact us at <a href="mailto:support@hmstravels.com">support@hmstravels.com</a>.</p>
+          <p>For privacy queries contact us at <a href="mailto:admin@hmsgrps.com">admin@hmsgrps.com</a>.</p>
         `,
         policy: `
   <h4>Rental Policy</h4>
