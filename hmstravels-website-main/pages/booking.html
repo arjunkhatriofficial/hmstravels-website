@@ -291,20 +291,73 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
   const form = this;
 
-  const message =
-    'Hi HMS Travels, I want to book a car:%0A%0A' +
-    'Name: ' + form.name.value + '%0A' +
-    'Phone: ' + form.phone.value + '%0A' +
-    'Car: ' + form.car.value + '%0A' +
-    'City: ' + form.city.value + '%0A' +
-    'Pickup Location: ' + form.pickup.value + '%0A' +
-    'Pickup Date: ' + form.pickup_date.value + '%0A' +
-    'Return Date: ' + form.return_date.value + '%0A' +
-    'Purpose: ' + form.purpose.value + '%0A' +
-    'Notes: ' + form.notes.value + '%0A' +
-    'Estimated Total: ' + document.getElementById('s-total').innerText;
+  // 🔹 Generate Booking ID
+  function generateBookingID() {
+    const prefix = "HMS";
+    const time = Date.now().toString().slice(-6);
+    const random = Math.floor(100 + Math.random() * 900);
+    return `${prefix}${time}${random}`;
+  }
 
-  window.open('https://wa.me/918777819525?text=' + message, '_blank');
+  const bookingID = generateBookingID();
+
+  // 🔹 Send data to Google Sheets
+  fetch("https://script.google.com/macros/s/AKfycbxAkVDfht-O3OQNJDzETnQuOIN2hmssQFzvGV-ScpqBUAM3jC9o76Iwx2RmMPP1teyTXQ/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      id: bookingID,
+      name: form.name.value,
+      phone: form.phone.value,
+      city: form.city.value,
+      pickup: form.pickup.value,
+      pickup_date: form.pickup_date.value,
+      return_date: form.return_date.value,
+      car: form.car.value,
+      purpose: form.purpose.value,
+      notes: form.notes.value,
+      total: document.getElementById('s-total').innerText
+    })
+  });
+
+  // 🔹 Premium WhatsApp message
+  const message = `✨ HMS GROUP — Booking Request
+
+🆔 Booking ID: ${bookingID}
+
+━━━━━━━━━━━━━━━
+
+🚗 SERVICE: HMS Travels
+
+👤 Name: ${form.name.value}
+📞 Phone: ${form.phone.value}
+
+━━━━━━━━━━━━━━━
+
+📍 Pickup City: ${form.city.value}
+📍 Pickup Address: ${form.pickup.value}
+
+📅 Pickup Date: ${form.pickup_date.value}
+📅 Return Date: ${form.return_date.value}
+
+🚘 Car Selected: ${form.car.value}
+🎯 Purpose: ${form.purpose.value}
+
+━━━━━━━━━━━━━━━
+
+📝 Notes:
+${form.notes.value || 'None'}
+
+━━━━━━━━━━━━━━━
+
+💰 Estimated Total: ${document.getElementById('s-total').innerText}
+
+⚡ Sent via HMS GROUP Website`;
+
+  // 🔹 Open WhatsApp
+  window.open(
+    'https://wa.me/918777819525?text=' + encodeURIComponent(message),
+    '_blank'
+  );
 });
 </script>
 </body>
