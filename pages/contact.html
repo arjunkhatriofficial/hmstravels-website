@@ -117,6 +117,7 @@
           <div class="form-group reveal">
             <label>Car Preference</label>
             <select name="car">
+              <option selected disabled>Select Car Preference</option>
               <option>Maruti Swift</option><option>Maruti Baleno</option><option>Hyundai i20</option>
               <option>Tata Nexon</option><option>Maruti Brezza</option><option>Hyundai Creta</option>
               <option>Kia Seltos</option><option>Honda City</option><option>Innova Crysta</option>
@@ -209,5 +210,48 @@
 <script src="../js/pillnav.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/footer.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("contactForm");
+
+  if (!form) {
+    console.error("Form not found");
+    return;
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.querySelector('[name="name"]').value;
+    const city = document.querySelector('[name="city"]').value;
+    const pickup = document.querySelector('[name="pickup"]').value;
+    const dropoff = document.querySelector('[name="dropoff"]').value;
+    const car = document.querySelector('[name="car"]').value;
+    const notes = document.querySelector('[name="notes"]').value;
+
+    const message = `✨ *HMS Travels — Booking Request*
+
+👤 ${name}
+📍 ${city || "Not selected"} | ${pickup}
+📌 Drop: ${dropoff || "Not specified"}
+🚗 ${car}
+
+📝 ${notes || "Will share details on call"}
+
+━━━━━━━━━━━━━━━
+Hello,
+I’m interested in booking a self-drive vehicle. Kindly share availability & pricing.
+
+📞 You can also call me if needed.`;
+
+    const phone = "918777819525";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  });
+
+});
+</script>
 </body>
 </html>
