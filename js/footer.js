@@ -1,15 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   const path = window.location.pathname.replace(/\\/g, '/');
   const isInPages = path.includes('/pages/');
-  const pagesPrefix = isInPages ? '' : 'pages/';
-  const homeHref = isInPages ? '../index.html' : 'index.html';
-  const logoSrc = isInPages ? '../assets/logo-footer.png' : 'assets/logo-footer.png';
+  const isNestedPage = /\/pages\/[^/]+\//.test(path);
+  const rootPrefix = isNestedPage ? '../../' : (isInPages ? '../' : '');
+  const pagesPrefix = rootPrefix + 'pages/';
+  const homeHref = rootPrefix + 'index.html';
+  const logoSrc = rootPrefix + 'assets/logo-footer.png';
 
   const footerHTML = `
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="${homeHref}" class="logo-wrap">
-        <img src="${logoSrc}" alt="HMS Travels Logo" class="logo-img">
+        <img src="${logoSrc}" alt="HMS Travels self drive car rental Kolkata logo" class="logo-img" width="64" height="64" loading="lazy" decoding="async">
       </a>
       <p>Kolkata Best Self-Drive Rental</p>
       <div class="footer-socials">
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="${pagesPrefix}booking.html">Booking</a></li>
         <li><a href="${pagesPrefix}about.html">About</a></li>
         <li><a href="${pagesPrefix}contact.html">Contact</a></li>
+        <li><a href="${pagesPrefix}sitemap.html">Sitemap</a></li>
       </ul>
     </div>
 
@@ -51,6 +54,16 @@ document.addEventListener('DOMContentLoaded', function () {
         <li><a href="https://wa.me/+918777819525">WhatsApp</a></li>
         <li><a href="tel:+918777819525">Call Us</a></li>
         <li><a href="mailto:admin@hmsgrps.com">Email</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Service Areas</h4>
+      <ul>
+        <li><a href="${pagesPrefix}self-drive-car-rental-kolkata-airport.html">Kolkata Airport</a></li>
+        <li><a href="${pagesPrefix}self-drive-car-rental-salt-lake.html">Salt Lake</a></li>
+        <li><a href="${pagesPrefix}self-drive-car-rental-new-town.html">New Town</a></li>
+        <li><a href="${pagesPrefix}car-rental-howrah.html">Howrah</a></li>
       </ul>
     </div>
 
@@ -67,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   <div class="footer-bottom">
     <p>© 2025 HMS Travels.</p>
+    <p>HMS Travels | Kolkata, West Bengal, India | +91 8777819525</p>
     <p>Self-Drive · Insured · No Driver</p>
   </div>
   
@@ -148,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
       links.forEach(a => a.addEventListener('click', function (e) {
         e.preventDefault();
         const key = this.dataset.key;
-        const titles = { terms: 'Terms & Conditions', privacy: 'Privacy Policy', cancellation: 'Cancellation Policy' };
+        const titles = { terms: 'Terms & Conditions', privacy: 'Privacy Policy', policy: 'Rental Policy', cancellation: 'Cancellation Policy' };
         titleEl.textContent = titles[key] || '';
         contentEl.innerHTML = legalTexts[key] || '<p>Content coming soon.</p>';
         modal.classList.add('open');

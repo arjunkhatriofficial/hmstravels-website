@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://hmstravels.com/</loc>
+    <lastmod>2026-05-06</lastmod>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://hmstravels.com/#fleet</loc>
+    <loc>https://hmstravels.com/pages/fleet.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hmstravels.com/pages/booking.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hmstravels.com/pages/about.html</loc>
+    <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://hmstravels.com/#services</loc>
+    <loc>https://hmstravels.com/pages/contact.html</loc>
+    <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://hmstravels.com/#contact</loc>
-    <priority>0.7</priority>
+    <loc>https://hmstravels.com/pages/self-drive-car-rental-kolkata-airport.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
   </url>
-
+  <url>
+    <loc>https://hmstravels.com/pages/self-drive-car-rental-salt-lake.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hmstravels.com/pages/self-drive-car-rental-new-town.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hmstravels.com/pages/car-rental-howrah.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hmstravels.com/pages/blog/self-drive-car-rental-guide-kolkata.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://hmstravels.com/pages/sitemap.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.5</priority>
+  </url>
 </urlset>
