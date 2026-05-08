@@ -1,0 +1,12 @@
+# HMS Travels
+> Self-drive car rental in Kolkata, India.
+HMS Travels offers self-drive cars from ₹1899/day. Fully insured hatchbacks, SUVs, MPVs. No driver needed. 50+ pickup points. WhatsApp: +91 87778 19525. Site: https://hmstravels.com
+## Pages
+- Home: https://hmstravels.com/
+- Fleet: https://hmstravels.com/fleet/
+- Book: https://hmstravels.com/book/
+- Contact: https://hmstravels.com/contact/
+- About: https://hmstravels.com/about/
+- Locations: https://hmstravels.com/locations/
+- FAQ: https://hmstravels.com/faq/
+- Blog: https://hmstravels.com/blog/
